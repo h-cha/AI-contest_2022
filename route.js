@@ -55,12 +55,25 @@ function showSteps() {
   var myRoute = directionsRenderer[0].directions.routes[selected].legs[0];
   var myp = document.getElementById("route");
   var str_steps = "";
-
   for (var i = 0; i < myRoute.steps.length; i++) {
     str_steps += myRoute.steps[i].instructions;
     str_steps += "<br>";
   }
   myp.innerHTML = str_steps;
+
+  //ルートの各ステップの緯度経度を抽出
+  var people_text = document.getElementById("people-flow");
+  var overview_path =
+    directionsRenderer[0].directions.routes[selected].overview_path;
+  overview_path.forEach((x) => {
+    var num_p = people_flow(x.lat(), x.lng());
+  });
+  if (num_p > 100) {
+    people_text.innerHTML = "混雑";
+  } else {
+    people_text.innerHTML = "空いている";
+  }
+
   //route
   directionsRenderer.forEach((x) => x.setMap(null));
   directionsRenderer[selected].setMap(myMap);
@@ -72,6 +85,8 @@ function attachInstructionText(marker, text) {
     stepDisplay.open(map, marker);
   });
 }
+
+function people_flow(lat, lng) {}
 
 function putMarker() {
   var neoMarker = new google.maps.Marker({
