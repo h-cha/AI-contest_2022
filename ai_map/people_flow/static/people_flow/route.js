@@ -67,12 +67,14 @@ function showSteps() {
     directionsRenderer[0].directions.routes[selected].overview_path;
   overview_path.forEach((x) => {
     var num_p = people_flow(x.lat(), x.lng());
+    // if (num_p > 100) {
+    //   people_text.innerHTML = "高い";
+    // } else {
+    //   people_text.innerHTML = "低い";
+    // }
+    console.log(x.lat());
+    console.log(x.lng());
   });
-  // if (num_p > 100) {
-  //   people_text.innerHTML = "混雑";
-  // } else {
-  //   people_text.innerHTML = "空いている";
-  // }
 
   //route
   directionsRenderer.forEach((x) => x.setMap(null));
