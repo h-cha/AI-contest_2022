@@ -1,0 +1,23 @@
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+#プロジェクト全体から除外
+__pycache__
+*.pyc
+*.pyo
+*.ini
+
+#root起点に除外
+/config
+/work
+/db.sqlite3
+/images
+/.spyproject
+/env
+/data

@@ -68,11 +68,11 @@ function showSteps() {
   overview_path.forEach((x) => {
     var num_p = people_flow(x.lat(), x.lng());
   });
-  if (num_p > 100) {
-    people_text.innerHTML = "混雑";
-  } else {
-    people_text.innerHTML = "空いている";
-  }
+  // if (num_p > 100) {
+  //   people_text.innerHTML = "混雑";
+  // } else {
+  //   people_text.innerHTML = "空いている";
+  // }
 
   //route
   directionsRenderer.forEach((x) => x.setMap(null));
@@ -86,7 +86,9 @@ function attachInstructionText(marker, text) {
   });
 }
 
-function people_flow(lat, lng) {}
+function people_flow(lat, lng) {
+  return 0;
+}
 
 function putMarker() {
   var neoMarker = new google.maps.Marker({
